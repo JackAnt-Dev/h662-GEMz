@@ -1,0 +1,15 @@
+{
+  "name": "Ruby 3",
+  "description": "Love like a Ruby.",
+  "image": "https://gateway.pinata.cloud/ipfs/QmaW3uGhMB8KpzNX3A1t1kUGzV4mFiDxwStCRotjALPBQb/3/3.png",
+  "attributes": [
+    {
+      "trait_type": "Rank",
+      "value": 3
+    },
+    {
+      "trait_type": "Type",
+      "value": "Ruby"
+    }
+  ]
+}
