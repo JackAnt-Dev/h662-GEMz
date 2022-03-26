@@ -11,3 +11,15 @@ next 사용이유
 배포시 uri 입력할때 주의사항
 
 - json 파일의 ipfs 주소를 입력해야함. image 말고
+
+caver-js
+
+- contract와 frontend가 통신하게 해주는 패키지
+
+next/index.d.ts
+
+- custom type이 필요할 때 적어두는 파일
+
+hooks/index.tsx
+
+- 코드 재사용을 위해 react hook처럼 컴포넌트를 만들어두려는 파일. 이 폴더는 next의 기본구성요소는 X
