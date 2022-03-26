@@ -23,3 +23,7 @@ next/index.d.ts
 hooks/index.tsx
 
 - 코드 재사용을 위해 react hook처럼 컴포넌트를 만들어두려는 파일. 이 폴더는 next의 기본구성요소는 X
+
+caverConfig.ts
+
+- 컨트랙 관련 정보 기록하기 좋은 파일 (caver로 통신하므로 파일명도 그럴듯함)

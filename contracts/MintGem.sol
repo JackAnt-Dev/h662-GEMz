@@ -22,12 +22,12 @@ contract MintGem is ERC721Enumerable, Ownable { // Ownable: Opensea 상에서 �
     // 1 klay
     uint gemPrice = 100000000000000000; // 10^18
 
-    function tokenURI(uint _tokenId) override public view returns (string memory) {  // 이미 ERC721에 존재하는 함수. Opensea에서 인식하게 만드려면 이 이름으로 꼭 정의해야한다고.
+    function tokenURI(uint _tokenId) override public view returns (string memory) {  // 이미 ERC721에 존재하는 함수. Opensea에서 인식하게 만드려면 이 이름으로 꼭 override 해야함.
         string memory gemRank = Strings.toString(gemData[_tokenId].gemRank);
         string memory gemType = Strings.toString(gemData[_tokenId].gemType);
         
         return string(
-            abi.encodePacked(uri, '/', gemRank, '/', gemType, '.json')
+            abi.encodePacked(uri, '/', gemRank, '/', gemType, '.json')  // 전부 이어붙여서 bytecode로 만들어줌
         );
     }
 
@@ -44,6 +44,7 @@ contract MintGem is ERC721Enumerable, Ownable { // Ownable: Opensea 상에서 �
         uint gemRank;
         uint gemType;
 
+        // 높은 rank일수록 희귀하도록 설계
         if (randomRank < 4) {
             gemRank = 1;
         } else if (4 <= randomRank && randomRank < 7) {
@@ -69,5 +70,13 @@ contract MintGem is ERC721Enumerable, Ownable { // Ownable: Opensea 상에서 �
         gemData[tokenId] = GemData(gemRank, gemType);
 
         _mint(msg.sender, tokenId);
+    }
+
+    function getLatestMintedGem(address _owner) public view returns(uint, uint) {
+        uint balanceLength = balanceOf(_owner);
+
+        uint tokenId = tokenOfOwnerByIndex(_owner, balanceLength - 1);  // last token
+
+        return (gemData[tokenId].gemRank, gemData[tokenId].gemType);
     }
 }

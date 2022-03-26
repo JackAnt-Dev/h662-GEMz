@@ -1,6 +1,6 @@
 import { AbiItem } from "caver-js";
 
-export const MINT_GEM_ADDRESS = "0x31432cedf6715f3aa8bd542d84a5ffaa37e05e54";
+export const MINT_GEM_ADDRESS = "0xF2Fcf6c12dCadB630EE35989f351680882A1F43b";
 
 export const MINT_GEM_ABI: AbiItem[] = [
   {
@@ -193,6 +193,30 @@ export const MINT_GEM_ABI: AbiItem[] = [
         internalType: "address",
         name: "",
         type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_owner",
+        type: "address",
+      },
+    ],
+    name: "getLatestMintedGem",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
     stateMutability: "view",
